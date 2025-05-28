@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Facturación Navifiesta</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="./css/styles.css"> -->
+    <?!= include('style'); ?>
+    <?!= include('js'); ?>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <!-- header -->
+                <div class="mb-3">
+                    <img src="https://drive.google.com/uc?export=view&id=1g3LRwXhZbU27UcLcp4cVO4keAAS1BnTT" class="rounded mx-auto d-block container__img" alt="logo">
+                </div>
+                <div class="mb-3 text-center">
+                    <h3>Facturación (Clientes Frecuentes)</h3>
+                </div>
+                <!-- End header -->
+
+                <!-- Information section -->
+                <div class="mb-3">
+                    <p class="text-center">
+                        Información IMPORTANTE: <br>
+                        Por favor, verifique que los datos que ingresa sean los correctos. una vez emitida la factura <b>NO SE PODRÁ HACER LA CANCELACIÓN</b>. El monto de la nota debe ser <b>mínimo de $100</b> para poder emitir la misma. <br>
+                        Si es cliente mayorista o su compra fue al mayoreo y requiere factura, se realizará un <b>cargo extra del 16% (IVA)</b> correspondiente el total de la nota. Favor de revisar su ticket. <br>
+                        GRACIAS POR SU PREFERENCIA!
+
+                    </p>
+                </div>
+                <!-- End information section -->
+
+                <!-- Form -->
+                <form action="https://edibauer.github.io/endForm/indexEnd.html" class="shadow p-4" id="myForm" onsubmit="handleFormSubmit(this)">
+                                        
+                    <!-- RFC -->
+                    <div class="mb-3">
+                        <label for="rfc">RFC:</label>
+                        <input type="text" class="form-control" name="rfc" id="rfc" placeholder="Ingresa tu RFC, por favor" required minlength="12" maxlength="13">
+                    </div>
+                    <!-- End RFC -->
+                   
+                    <!-- Teléfono-->
+                    <div class="mb-3">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="Ingresa tu número de teléfono, por favor" required>
+                    </div>
+                    <!-- End Telefono -->
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Ingresa el correo electrónico, por favor" required>
+                    </div>
+                    <!-- End email -->
+
+                    <!-- Numero nota -->
+                    <div class="mb-3">
+                        <label for="numero_nota">Número nota (ticket):</label>
+                        <input type="text" class="form-control" name="numero_ticket" id="numero_ticket" placeholder="Ingresa el numero de la nota, por favor" required minlength="6">
+                    </div>
+                    <!-- End Numero nota -->
+
+                    <!-- Uso CFDI -->
+                    <div class="mb-3">
+                        <p>Uso del CFDI:</p>
+                        <!-- G01 Adquisición de Mercancias -->
+                        <input type="radio" class="form-check-input" name="cfdi" id="g01" value="G01 Adquisición de Mercancias" required>
+                        <label for="g01">G01 Adquisición de mercancías</label>
+                        <br>
+                        <!-- G03 Gastos en General -->
+                        <input type="radio" class="form-check-input" name="cfdi" id="g03" value="G03 Gastos en General" required>
+                        <label for="g03">G03 Gastos en General</label>
+                        <br>
+                        <!-- P01 Por definir -->
+                        <input type="radio" class="form-check-input" name="cfdi" id="p01" value="P01 Por definir" required>
+                        <label for="p01">P01 Por definir</label>
+
+                    </div>
+                    <!-- End Uso CFDI -->
+
+                    <!-- Forma de Pago -->
+                    <div class="mb-3">
+                        <p>Forma de Pago:</p>
+                        <!-- 01 Efectivo -->
+                        <input type="radio" class="form-check-input" name="pago" id="pay01" value="01 Efectivo" required>
+                        <label for="pay01">01 Efectivo</label>
+                        <br>
+                        <!-- 02 Cheque nominativo -->
+                        <input type="radio" class="form-check-input" name="pago" id="pay02" value="02 Cheque nominativo" required>
+                        <label for="pay02">02 Cheque Nominativo</label>
+                        <br>
+                        <!-- 03 Transferencia electrónica -->
+                        <input type="radio" class="form-check-input" name="pago" id="pay03" value="03 Transferencia electrónica" required>
+                        <label for="pay03">03 Transferencia electrónica</label>
+                        <br>
+                        <!-- 04 Tarjeta de crédito-->
+                        <input type="radio" class="form-check-input" name="pago" id="pay04" value="04 Tarjeta de crédito" required>
+                        <label for="pay04">04 Tarjeta de Crédito</label>
+                        <br>
+                        <!-- 28 Tarjeta de Débito -->
+                        <input type="radio" class="form-check-input" name="pago" id="pay28" value="28 Tarjeta de Débito" required>
+                        <label for="pay28">28 Tarjeta de Débito</label>
+                        <br>
+                        <!-- 99 Por definir -->
+                        <input type="radio" class="form-check-input" name="pago" id="pay99" value="99 Por definir" required>
+                        <label for="pay99">99 Por Definir</label>
+
+                    </div>
+                    <!-- End Forma de pago -->
+
+                    <!-- Regimen Fiscal -->
+                    <div class="mb-3">
+                      <p>Regimen Fiscal:</p>
+                      <!-- Regimen Fiscal 601-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg601" value="601 General de Ley Personas Morales" required> 
+                      <label for="reg601">601 General de Ley Personas Morales</label>
+                      <br>
+                      <!-- Regimen Fiscal 603-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg603" value="603 Personas Morales con Fines No Lucrativos" required> 
+                      <label for="reg603">603 Personas Morales con Fines No Lucrativos</label>
+                      <br>
+                      <!-- Regimen Fiscal 610-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg610" value="610 Residentes en el Extranjero sin Establecimiento Permanente en México" required> 
+                      <label for="reg610">610 Residentes en el Extranjero sin Establecimiento Permanente en México</label>
+                      <br>
+                      <!-- Regimen Fiscal 620-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg620" value="620 Sociedades Cooperativas de Producción que optan por diferir sus ingresos" required> 
+                      <label for="reg620">620 Sociedades Cooperativas de Producción que optan por diferir sus ingresos</label>
+                      <br>
+                      <!-- Regimen Fiscal 622-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg622" value="622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras" required> 
+                      <label for="reg622">622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</label>
+                      <br>
+                      <!-- Regimen Fiscal 623-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg622" value="623 Opcional para Grupos de Sociedades" required> 
+                      <label for="reg623">623 Opcional para Grupos de Sociedades</label>
+                      <br>
+                      <!-- Regimen Fiscal 624-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg624" value="624 Coordinados" required> 
+                      <label for="reg624">624 Coordinados</label>
+                      <br>
+                      <!-- Regimen Fiscal 626-->
+                      <input type="radio" class="form-check-input" name="regimen" id="reg626" value="626 Regimen Simplificado de Confianza" required> 
+                      <label for="reg626">626 Regimen Simplificado de Confianza</label>
+                      <br>
+
+                    </div>  
+                    <!-- end regimen fiscal -->
+  
+                    <!-- Button    -->
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                    <!-- End button -->
+    
+                    <!-- <hr> -->
+                                            
+                </form>
+                <!-- End form -->
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
